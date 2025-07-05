@@ -1,0 +1,169 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #E7E7E7;
+}
+
+body {
+  background-color: #121721; 
+  min-height: 100vh;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.despesas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1c2749; 
+  padding: 30px;
+  border-radius: 16px;
+  width: 520px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inputs input,
+.inputs select,
+.inputs button {
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1.5px solid #334b89;
+  background-color: #162138;
+  color: #e7e7e7;
+  font-size: 16px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.inputs input::placeholder {
+  color: #a8a8a8;
+}
+
+.inputs input:focus,
+.inputs select:focus {
+  outline: none;
+  border-color: #e7a72c;
+  background-color: #2e3a6a;
+  color: #fff;
+}
+
+button {
+  background-color: #e7a72c; 
+  color: #162138;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+button:hover {
+  background-color: #cca327;
+}
+
+.lista-contas {
+  margin-top: 20px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.lista-contas ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.lista-contas li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #162138;
+  border-radius: 10px;
+  border: 1px solid #334b89;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  color: #e7e7e7;
+  font-weight: 600;
+}
+
+.descricao-li {
+  max-width: 70%;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.botao-li {
+  display: flex;
+  gap: 10px;
+}
+
+.botao-li button {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.botao-li button:first-child {
+  background-color: #334b89; 
+  color: #e7e7e7;
+}
+
+.botao-li button:first-child:hover {
+  background-color: #253366;
+}
+
+.botao-li button:last-child {
+  background-color: #d13631;
+  color: #fff;
+}
+
+.botao-li button:last-child:hover {
+  background-color: #a32927;
+}
+
+.resumo-total {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 18px;
+  font-weight: 700;
+  color: #e7a72c; 
+}
+
+select {
+  background-color: #334b89; 
+  color: #e7e7e7; 
+  border: 1.5px solid #2a3c6f; 
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+select:hover, select:focus {
+  background-color: #2a3c6f; 
+  border-color: #e7a72c; 
+  outline: none;
+}
+
+.valor-conta { 
+  white-space: nowrap;
+  flex-shrink: 0;  
+  margin-left: 8px;             
+}
+
