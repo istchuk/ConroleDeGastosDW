@@ -16,6 +16,7 @@ export default function Select() {
                     <option value="">Selecione</option>
                     <option value="fixas">Fixas</option>
                     <option value="variadas">Variadas</option>
+                    <option value="balanco">Balanço</option>
                 </select>
             </div>
 

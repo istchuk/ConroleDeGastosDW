@@ -73,7 +73,7 @@ export default function Variadas() {
         return `${dia}/${mes}/${ano}`;
     }
 
-    const total = contas.reduce((acc, conta) => acc + conta.valor, 0);
+    const totalvariadas = contas.reduce((acc, conta) => acc + conta.valor, 0);
 
     return (
         <div className="despesas">
@@ -129,7 +129,7 @@ export default function Variadas() {
                 </div>
 
                 <div className="resumo-total">
-                    <h3>Total: R$ {total.toFixed(2)}</h3>
+                    <h3>Total: R$ {totalvariadas.toFixed(2)}</h3>
                 </div>
             </div>
         </div>

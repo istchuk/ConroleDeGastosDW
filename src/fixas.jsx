@@ -66,7 +66,7 @@ export default function Fixas() {
         return `${dia}/${mes}/${ano}`;
     }
 
-    const total = contas.reduce((acc, conta) => acc + conta.valor, 0);
+    const totalfixas = contas.reduce((acc, conta) => acc + conta.valor, 0);
 
     return (
         <div className="despesas">
@@ -113,7 +113,7 @@ export default function Fixas() {
                     </div>
                 </div>
                 <div className="resumo-total">
-                    <h3>Total: R$ {total.toFixed(2)}</h3>
+                    <h3>Total: R$ {totalfixas.toFixed(2)}</h3>
                 </div>
             </div>
         </div>
