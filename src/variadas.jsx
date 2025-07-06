@@ -1,5 +1,5 @@
 import { useState } from "react";
-export const [totalvariadas] = totalvariadas
+
 export default function Variadas() {
     // Carrega do localStorage diretamente
     const [contas, setContas] = useState(() => {
@@ -16,6 +16,8 @@ export default function Variadas() {
     const [valorConta, setValorConta] = useState("");
     const [dataConta, setDataConta] = useState("");
     const [editandoIndex, setEditandoIndex] = useState(null);
+    const [categoriaConta, setCategoriaConta] = useState("");
+
 
     function salvarLocalStorage(lista) {
         localStorage.setItem("contasVariadas", JSON.stringify(lista));
@@ -26,7 +28,8 @@ export default function Variadas() {
             const novaConta = {
                 nome: nomeConta,
                 valor: parseFloat(valorConta),
-                data: dataConta
+                data: dataConta,
+                categoria: categoriaConta
             };
 
             let novaLista;
@@ -73,7 +76,7 @@ export default function Variadas() {
         return `${dia}/${mes}/${ano}`;
     }
 
-    const totalvariadas = contas.reduce((acc, conta) => acc + conta.valor, 0);
+    const total = contas.reduce((acc, conta) => acc + conta.valor, 0);
 
     return (
         <div className="despesas">
@@ -100,6 +103,20 @@ export default function Variadas() {
                         onChange={(e) => setDataConta(e.target.value)}
                         onKeyDown={clicarTecla}
                     />
+                    <select 
+                        value={categoriaConta} 
+                        onChange={(e) => setCategoriaConta(e.target.value)} 
+                        onKeyDown={clicarTecla}>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="Alimentação">Alimentação</option>
+                        <option value="Transporte">Transporte</option>
+                        <option value="Educação">Educação</option>
+                        <option value="Saúde">Saúde</option>
+                        <option value="Lazer">Lazer</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+
+                    
                     <button onClick={adicionarConta}>
                         {editandoIndex !== null ? "Salvar" : "Adicionar"}
                     </button>
@@ -112,8 +129,10 @@ export default function Variadas() {
                                 {contas.map((conta, index) => (
                                     <li key={index} className="item-conta">
                                         <div className="descricao-li">
-                                            {index + 1}. {conta.nome} - {formatarData(conta.data)} - 
-                                            <span className="valor-conta"> R${conta.valor.toFixed(2)}</span>
+                                            <p><strong>{index + 1}. Nome:</strong> {conta.nome}</p>
+                                            <p><strong>Data:</strong> {formatarData(conta.data)}</p>
+                                            <p><strong>Valor:</strong> R$ {conta.valor.toFixed(2)}</p>
+                                            <p><strong>Categoria:</strong> {conta.categoria}</p>
                                         </div>
                                         <div className="botao-li">
                                             <button onClick={() => editarConta(index)}>Editar</button>
@@ -129,7 +148,7 @@ export default function Variadas() {
                 </div>
 
                 <div className="resumo-total">
-                    <h3>Total: R$ {totalvariadas.toFixed(2)}</h3>
+                    <h3>Total: R$ {total.toFixed(2)}</h3>
                 </div>
             </div>
         </div>

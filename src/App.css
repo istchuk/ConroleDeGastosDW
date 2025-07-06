@@ -14,18 +14,20 @@ body {
 .container {
   min-height: 100vh;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .despesas {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: #1c2749; 
   padding: 30px;
   border-radius: 16px;
-  width: 520px;
+  width: 90%;
+  max-width: 520px;
+  margin: 40px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
+
 
 .inputs {
   display: flex;
@@ -101,20 +103,32 @@ button:hover {
   white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.descricao-li p {
+  margin: 0;
+  font-size: 15px;
+  color: #e5fbee;
 }
 
 .botao-li {
   display: flex;
+  justify-content: flex-end;
   gap: 10px;
+  margin-top: 8px;
 }
 
 .botao-li button {
-  padding: 8px 14px;
-  border-radius: 10px;
+  padding: 6px 12px;
+  background-color: #1f6c3d;
   border: none;
-  font-weight: 600;
+  border-radius: 8px;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.25s ease;
+  transition: background 0.2s ease-in-out;
+  
 }
 
 .botao-li button:first-child {
@@ -167,3 +181,31 @@ select:hover, select:focus {
   margin-left: 8px;             
 }
 
+.item-conta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+  margin-bottom: 10px;
+  color: #e5fbee;
+  max-width: 500px;
+}
+
+.painel-resumo {
+  background-color: #1c2749; 
+  color: #e5fbee;
+  padding: 15px;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 0 auto 20px auto;
+}
+
+.painel-resumo ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.painel-resumo li {
+  margin-bottom: 5px;
+}
