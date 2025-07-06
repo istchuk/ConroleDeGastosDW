@@ -79,55 +79,63 @@ export default function Fixas() {
 
     const total = contas.reduce((acc, conta) => acc + conta.valor, 0);
 
+    const contasOrdenadas = [...contas].sort((a, b) => {
+        if (!a.categoria) return 1;
+        if (!b.categoria) return -1;
+        return a.categoria.localeCompare(b.categoria);
+    });
+
     return (
         <div className="despesas">
-            <h1>Despesas Fixas</h1>
-            <div className="card">
-                <div className="inputs">
-                    <input
-                        type="text"
-                        placeholder="Nome despesa"
-                        value={nomeConta}
-                        onChange={(e) => setNomeConta(e.target.value)}
-                        onKeyDown={clicarTecla}
-                    />
-                    <input
-                        type="number"
-                        placeholder="Valor"
-                        value={valorConta}
-                        onChange={(e) => setValorConta(e.target.value)}
-                        onKeyDown={clicarTecla}
-                    />
-                    <input
-                        type="date"
-                        value={dataConta}
-                        onChange={(e) => setDataConta(e.target.value)}
-                        onKeyDown={clicarTecla}
-                    />
-                    <select
-                        value={categoriaConta}
-                        onChange={(e) => setCategoriaConta(e.target.value)}
-                        onKeyDown={clicarTecla}
-                    >
-                        <option value="">Selecione uma categoria</option>
-                        <option value="Alimentação">Alimentação</option>
-                        <option value="Transporte">Transporte</option>
-                        <option value="Educação">Educação</option>
-                        <option value="Saúde">Saúde</option>
-                        <option value="Lazer">Lazer</option>
-                        <option value="Outros">Outros</option>
-                    </select>
-
-                    <button onClick={adicionarConta}>
-                        {editandoIndex !== null ? "Salvar" : "Adicionar"}
-                    </button>
+            <div className="adicionarDespesa">
+                <h1>Despesas Fixas</h1>
+                <div className="card">
+                    <div className="inputs">
+                        <input
+                            type="text"
+                            placeholder="Nome despesa"
+                            value={nomeConta}
+                            onChange={(e) => setNomeConta(e.target.value)}
+                            onKeyDown={clicarTecla}
+                        />
+                        <input
+                            type="number"
+                            placeholder="Valor"
+                            value={valorConta}
+                            onChange={(e) => setValorConta(e.target.value)}
+                            onKeyDown={clicarTecla}
+                        />
+                        <input
+                            type="date"
+                            value={dataConta}
+                            onChange={(e) => setDataConta(e.target.value)}
+                            onKeyDown={clicarTecla}
+                        />
+                        <select
+                            value={categoriaConta}
+                            onChange={(e) => setCategoriaConta(e.target.value)}
+                            onKeyDown={clicarTecla}
+                        >
+                            <option value="">Selecione uma categoria</option>
+                            <option value="Alimentação">Alimentação</option>
+                            <option value="Transporte">Transporte</option>
+                            <option value="Educação">Educação</option>
+                            <option value="Saúde">Saúde</option>
+                            <option value="Lazer">Lazer</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                        <button onClick={adicionarConta}>
+                            {editandoIndex !== null ? "Salvar" : "Adicionar"}
+                        </button>
+                    </div>
                 </div>
-
+            </div>
+            <div className="listaReal">
                 <div className="lista-contas">
                     <div className="lista-scroll">
                         {contas.length > 0 ? (
                             <ul>
-                                {contas.map((conta, index) => (
+                                {contasOrdenadas.map((conta, index) => (
                                     <li key={index} className="item-conta">
                                         <div className="descricao-li">
                                             <p><strong>{index + 1}. Nome:</strong> {conta.nome}</p>
@@ -147,7 +155,6 @@ export default function Fixas() {
                         )}
                     </div>
                 </div>
-
                 <div className="resumo-total">
                     <h3>Total: R$ {total.toFixed(2)}</h3>
                 </div>

@@ -78,6 +78,12 @@ export default function Variadas() {
 
     const total = contas.reduce((acc, conta) => acc + conta.valor, 0);
 
+    const contasOrdenadas = [...contas].sort((a, b) => {
+        if (!a.categoria) return 1;
+        if (!b.categoria) return -1;
+        return a.categoria.localeCompare(b.categoria);
+    });
+
     return (
         <div className="despesas">
             <h1>Despesas Variadas</h1>
@@ -126,7 +132,7 @@ export default function Variadas() {
                     <div className="lista-scroll">
                         {contas.length > 0 ? (
                             <ul>
-                                {contas.map((conta, index) => (
+                                {contasOrdenadas.map((conta, index) => (
                                     <li key={index} className="item-conta">
                                         <div className="descricao-li">
                                             <p><strong>{index + 1}. Nome:</strong> {conta.nome}</p>
