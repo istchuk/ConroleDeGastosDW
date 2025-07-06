@@ -3,6 +3,7 @@ import Select from './select'
 import Fixas from './fixas'
 import Variadas from './variadas'
 
+
 export default function App() {
   return(
     <div className='container'>

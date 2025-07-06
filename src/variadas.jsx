@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+export const [totalvariadas] = totalvariadas
 export default function Variadas() {
     // Carrega do localStorage diretamente
     const [contas, setContas] = useState(() => {

@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { totalfixas } from "./fixas";
+import { totalvariadas } from "./variadas";
+export default function Balanco({ totalfixas, totalvariadas }) {
+  const [total, setTotal] = useState(0);
 
-export default function Balanco(){
-    const [totalSaidas, settotalSaidas] = useState("")
+  // Faz o cálculo assim que o componente renderiza
+  useEffect(() => {
+    setTotal(totalfixas + totalvariadas);
+  }, [totalfixas, totalvariadas]);
 
-    function totalSaidas(totalfixas, totalvariadas){
-        <div>o total de despezas é de: xx</div>
-    }
+  return (
+    <div>O total de despesas é: {total}</div>
+  );
 }

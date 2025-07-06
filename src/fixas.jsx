@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+export const [totalfixas] = totalfixas
 export default function Fixas() {
     const [nomeConta, setNomeConta] = useState("");
     const [valorConta, setValorConta] = useState("");
