@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 export default function Variadas() {
-    // Carrega do localStorage diretamente
     const [contas, setContas] = useState(() => {
         try {
             const contasSalvas = localStorage.getItem("contasVariadas");

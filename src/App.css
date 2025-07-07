@@ -32,8 +32,6 @@ body {
   gap: 20px;               
 }
 
-
-
 .inputs {
   display: flex;
   flex-direction: column;

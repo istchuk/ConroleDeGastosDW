@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import Variadas from "./variadas";
 import Fixas from "./fixas";
 
-
-
 export default function Select() {
     const [tipoConta, setTipoConta] = useState("");
     const [fixas, setFixas] = useState([]);
@@ -14,8 +12,7 @@ export default function Select() {
     const variadasSalvas = localStorage.getItem("contasVariadas");
 
     if (fixasSalvas) setFixas(JSON.parse(fixasSalvas));
-    if (variadasSalvas) setVariadas(JSON.parse(variadasSalvas));
-    }, []);
+    if (variadasSalvas) setVariadas(JSON.parse(variadasSalvas));}, []);
 
     const todas = [...fixas, ...variadas];
     const totalGeral = todas.reduce((acc, conta) => acc + conta.valor, 0);
@@ -25,8 +22,7 @@ export default function Select() {
     const gastosPorCategoria = todas.reduce((acc, conta) => {
     const cat = conta.categoria || "Sem categoria";
     acc[cat] = (acc[cat] || 0) + conta.valor;
-    return acc;
-    }   , {});
+    return acc;}, {});
 
     return (
         <div className="ClasseSelect">
